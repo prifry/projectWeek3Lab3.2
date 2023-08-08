@@ -1,0 +1,26 @@
+ /*Home and about div flex*/
+ .homeimage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ }
+ /*Home image*/
+ .custom-image2{
+   width: 300px;
+   height: 200px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+ }
+ @keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.custom-image2 {
+  opacity: 0;
+  animation: fadeIn 3s ease-in-out forwards;
+}

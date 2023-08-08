@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route, NavLink, HashRouter } from 'react-router-dom';
 import Home from './component/Home/Home.js';
+import Products from './component/Products/Products.js';
 import About from './component/About/About.js';
 import Contact from './component/Contact/contact.js';
 
@@ -14,6 +15,7 @@ const Main = () => {
         
       <ul className="header">
         <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/products">Products</NavLink></li>
         <li><NavLink to="/about">About</NavLink></li>
         <li><NavLink to="/contact">Contact</NavLink></li>
       </ul>
@@ -21,6 +23,7 @@ const Main = () => {
       <div className='content'>
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route path="/products" element={<Products/>} />
         <Route path="/about" element={<About/>}/>
         <Route path="/contact" element={<Contact/>}/>
           {/* Add other routes as needed */}

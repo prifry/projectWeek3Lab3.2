@@ -9,13 +9,15 @@ import './Home.css';
 const Home = () => {
   return (
     <div className="homeimage">
-      <h2>Welcome to Prifry Single Page React</h2>
+      <h2>Welcome to PigmentWay</h2>
       <CustImage
-        src="/images/unsplash_react.jpg" 
+        src="/images/home.jpg" 
         alt="Priscila Fry"
         className="custom-image2" // Add your custom CSS class for styling.
       />
-      <p>A Single Page Application (SPA) built with React is a web application that operates within a single web page, meaning that when a user interacts with the application, the content dynamically changes on the page without the need for a full page reload. React is a popular JavaScript library developed by Facebook for building user interfaces and is commonly used for creating SPAs.</p>
+      <p>Let's Give Life Some Color!</p>
+      <p> There are many different color pigments to choose from.</p>
+      <p> See all our options in the Products link above.</p>
     </div>
   );
 };

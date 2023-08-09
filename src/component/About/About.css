@@ -55,3 +55,14 @@ h1 {
   opacity: 0;
   animation: fadeIn 3s ease-in-out forwards;
 }
+/*first image in the about page*/
+.about-image2{
+  max-width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  width: 500px;
+  height: 200px;
+  opacity: 0;
+  animation: fadeIn 3s ease-in-out forwards;
+}

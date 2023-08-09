@@ -23,4 +23,22 @@
 .custom-image2 {
   opacity: 0;
   animation: fadeIn 3s ease-in-out forwards;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/*Buttom at bottom of text on the home page*/
+.buttomhom{
+  border-radius: 35px;
+  background-color: #db7a0b;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.buttomtext{
+  color:hsl(202, 14%, 84%);
+  font-weight: bold;
+  text-decoration: none;
+  padding: 20px;
+  display: inline-block;
 }

@@ -7,6 +7,7 @@ const ProductsContainer = styled.div`
   flex-wrap: wrap;
 `;
 
+
 const productsData = [
   {
     id: 1,
@@ -55,11 +56,15 @@ const productsData = [
 
 const ProductsPage = () => {
   return (
-    <ProductsContainer>
-      {productsData.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-    </ProductsContainer>
+    <div>
+      <h1>Welcome to our Pigments</h1>
+      <p>*Shipping will be calculated after you add your address.</p>
+      <ProductsContainer>
+        {productsData.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </ProductsContainer>
+    </div>
   );
 };
 

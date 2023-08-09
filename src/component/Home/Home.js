@@ -1,5 +1,6 @@
 import React from "react";
 import CustImage from '../CustomImage/CustoImage.js';
+import {  NavLink } from 'react-router-dom';
 import './Home.css';
 //Our app will have three pages of content. 
 //This content will just be a simple component
@@ -16,8 +17,9 @@ const Home = () => {
         className="custom-image2" // Add your custom CSS class for styling.
       />
       <p>Let's Give Life Some Color!</p>
-      <p> There are many different color pigments to choose from.</p>
-      <p> See all our options in the Products link above.</p>
+      <p> There are many pigments to choose from.</p>
+      <p> See all our options in the Products link below.</p>
+      <button className="buttomhom"><NavLink to="/products" className="buttomtext">Products</NavLink></button>
     </div>
   );
 };

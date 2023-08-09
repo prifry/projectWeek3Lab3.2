@@ -6,8 +6,9 @@ import About from './component/About/About.js';
 import Contact from './component/Contact/contact.js';
 
 
+
 const Main = () => {
-  
+
       return (
     <HashRouter>
     <div>
@@ -17,7 +18,7 @@ const Main = () => {
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/products">Products</NavLink></li>
         <li><NavLink to="/about">About</NavLink></li>
-        <li><NavLink to="/contact">Contact</NavLink></li>
+        <li><NavLink to="/contact">Contact</NavLink></li>     
       </ul>
          
       <div className='content'>

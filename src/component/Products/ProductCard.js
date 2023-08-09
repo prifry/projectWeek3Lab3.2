@@ -1,6 +1,7 @@
 import React,  { useState } from 'react';
 import styled from 'styled-components';
 
+
 // Styled component for the product card container
 const Card = styled.div`
   border: 1px solid #ddd;
@@ -52,7 +53,7 @@ margin-right: 10px;
 
 `;
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, addToCart }) => {
     // State to track the selected option and quantity
    const [quantity, setQuantity] = useState(1);
    // Function to handle quantity input change 
@@ -61,8 +62,9 @@ const ProductCard = ({ product }) => {
 };
    // Function to handle "Add to Cart" button click
   const handleAddToCart = () => {
-    // Implement your logic to add the product to the cart
-    console.log(`Added ${quantity} ${product.name} to cart.`);
+      // Call the addToCart function with the product and quantity
+      addToCart(product, quantity);
+      console.log(`Added ${quantity} ${product.name} to cart.`);
 };
 
   return (

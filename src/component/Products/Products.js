@@ -1,13 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import ProductCard from './ProductCard';
+import CartPage from './CartPage';
 
+// Styled component for the products container
 const ProductsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
+const Button = styled.button`
+background-color: orange;
+color: white;
+border: none;
+padding: 5px 10px;
+border-radius: 4px;
+cursor: pointer;
+font-size: 14px;
+margin-top: 10px;
+width: 100px;
+height: 30px:
+`;
 
-
+// Sample product data
 const productsData = [
   {
     id: 1,
@@ -55,17 +69,46 @@ const productsData = [
 ];
 
 const ProductsPage = () => {
+    // State to manage the cart items and cart visibility
+  const [cartItems, setCartItems] = useState([]);
+  const [showCart, setShowCart] = useState(false);
+
+ // Function to add a product to the cart
+  const addToCart = (product, quantity) => {
+    const item = { ...product, quantity };
+    setCartItems([...cartItems, item]);
+  };
+
+  // Function to show the cart and scroll to it
+  const handleViewCart = () => {
+    setShowCart(true);
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  };
+
+    // Function to go back to the products listing and scroll to the top
+  const handleBackToProducts = () => {
+    setShowCart(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
+    
     <div>
-      <h1>Welcome to our Pigments</h1>
-      <p>*Shipping will be calculated after you add your address.</p>
-      <ProductsContainer>
-        {productsData.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </ProductsContainer>
-    </div>
-  );
+    <h1>Welcome to our Pigments</h1>
+    <p>Shipping is not yet included in the price.</p>
+    <ProductsContainer>
+      {productsData.map((product) => (
+         // Render each product using the ProductCard component and pass the addToCart function
+        <ProductCard key={product.id} product={product} addToCart={addToCart} />
+      ))}
+    </ProductsContainer>
+    <Button onClick={handleViewCart}>View Cart</Button>
+
+    {showCart && (
+      <CartPage cartItems={cartItems} onBackToProducts={handleBackToProducts} />
+    )}
+  </div>
+);
 };
 
 export default ProductsPage;

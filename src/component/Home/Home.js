@@ -2,10 +2,7 @@ import React from "react";
 import CustImage from '../CustomImage/CustoImage.js';
 import {  NavLink } from 'react-router-dom';
 import './Home.css';
-//Our app will have three pages of content. 
-//This content will just be a simple component
-// that prints out some JSX.
-//import React from 'react';
+
 
 const Home = () => {
   return (

@@ -49,12 +49,19 @@ const SubmitButton = styled.button`
   }
 `;
 
+
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;

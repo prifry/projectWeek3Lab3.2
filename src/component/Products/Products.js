@@ -7,6 +7,7 @@ import CartPage from './CartPage';
 const ProductsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 `;
 const Button = styled.button`
 background-color: orange;

@@ -10,7 +10,7 @@ const Home = () => {
       <h2>Welcome to PigmentWay</h2>
       <CustImage
         src="/images/home.jpg" 
-        alt="Priscila Fry"
+        alt="Blond Girl with green pigment make-up"
         className="custom-image2" // Add your custom CSS class for styling.
       />
       <p>Let's Give Life Some Color!</p>

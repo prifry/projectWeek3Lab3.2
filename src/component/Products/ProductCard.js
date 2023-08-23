@@ -53,7 +53,7 @@ margin-right: 10px;
 
 `;
 
-const ProductCard = ({ product, addToCart }) => {
+const ProductCard = ({ product, addToCart, removeFromCart }) => {
     // State to track the selected option and quantity
    const [quantity, setQuantity] = useState(1);
    // Function to handle quantity input change 
@@ -67,6 +67,7 @@ const ProductCard = ({ product, addToCart }) => {
       console.log(`Added ${quantity} ${product.name} to cart.`);
 };
 
+
   return (
     <Card>
       <Image src={product.imageUrl} alt={product.name} />
@@ -79,7 +80,7 @@ const ProductCard = ({ product, addToCart }) => {
         onChange={handleQuantityChange}
         min="1"
       />
-      <AddToCartButton onClick={handleAddToCart}>Add to Cart</AddToCartButton>
+      <AddToCartButton onClick={handleAddToCart}>Add + </AddToCartButton>
     </Card>
   );
 };

@@ -9,17 +9,18 @@ const ProductsContainer = styled.div`
   flex-wrap: wrap;
   align-items: center;
 `;
+//ViewCart button
 const Button = styled.button`
 background-color: orange;
 color: white;
 border: none;
-padding: 5px 10px;
+padding: 10px 10px;
 border-radius: 4px;
 cursor: pointer;
 font-size: 14px;
 margin-top: 10px;
-width: 100px;
-height: 30px:
+margin-left: 10px;
+
 `;
 
 // Sample product data
@@ -70,26 +71,34 @@ const productsData = [
 ];
 
 const ProductsPage = () => {
-    // State to manage the cart items and cart visibility
   const [cartItems, setCartItems] = useState([]);
   const [showCart, setShowCart] = useState(false);
 
- // Function to add a product to the cart
+   // Find the index of the existing item in the cart
   const addToCart = (product, quantity) => {
-    const item = { ...product, quantity };
-    setCartItems([...cartItems, item]);
+    const existingItemIndex = cartItems.findIndex(item => item.id === product.id);
+     // If the item exists in the cart, update its quantity
+    if (existingItemIndex !== -1) {
+      const updatedCartItems = [...cartItems];
+      updatedCartItems[existingItemIndex].quantity += quantity;
+      setCartItems(updatedCartItems);// Update the cart items with the new quantity
+    } else {   // If the item is not in the cart, add it as a new item with the provided quantity
+      const newItem = { ...product, quantity };
+      setCartItems([...cartItems, newItem]);// Add the new item to the cart items
+    }
   };
 
-  // Function to show the cart and scroll to it
+  const removeFromCart = (productId) => {
+    const updatedCartItems = cartItems.filter(item => item.id !== productId);
+    setCartItems(updatedCartItems);
+  };
+
   const handleViewCart = () => {
     setShowCart(true);
-    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   };
 
-    // Function to go back to the products listing and scroll to the top
   const handleBackToProducts = () => {
     setShowCart(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -97,16 +106,17 @@ const ProductsPage = () => {
     <div>
     <h1>Welcome to our Pigments</h1>
     <p>Shipping is not yet included in the price.</p>
+    <p><strong>Add as many as you like!</strong></p>
     <ProductsContainer>
       {productsData.map((product) => (
-         // Render each product using the ProductCard component and pass the addToCart function
-        <ProductCard key={product.id} product={product} addToCart={addToCart} />
+         // Render each product using the ProductCard component and pass the  functions
+        <ProductCard key={product.id} product={product} addToCart={addToCart} removeFromCart={removeFromCart} isIncart={cartItems.some(item => item.id === product.id)}/>
       ))}
     </ProductsContainer>
     <Button onClick={handleViewCart}>View Cart</Button>
 
     {showCart && (
-      <CartPage cartItems={cartItems} onBackToProducts={handleBackToProducts} />
+      <CartPage cartItems={cartItems} onBackToProducts={handleBackToProducts} removeFromCart={removeFromCart} handleRefreshCart={() => setCartItems([])}/>
     )}
   </div>
 );
